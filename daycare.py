@@ -72,12 +72,38 @@ class Daycare:
             raise TypeError("Not an animal")
 
         self.__animals = animals
+
+class Neighbourhood:
+
+    __COUNT = 0
+    
+    def __init__(self, daycare):
+        if Neighbourhood.__COUNT >= 1:
+            raise OSError("Bendigo doesn't accept 2 neighbourhoods!")
+
+        Neighbourhood.__COUNT += 1
+
+    def __del__():
+        Neighbourhood.__COUNT -= 1
+        
+    @property
+    def daycare(self):
+        return self.__daycare
+
+    @daycare.setter
+    def daycare(self, value):
+        self.__daycare = value
+
+class RSPCA:
+
+    def __init__(self, animals)
+    self.__animals = animals
         
 if __name__ == "__main__":
     dog = Animal("Snoopy", "dog")
     cat = Animal("Garfield", "cat")
     bird = Animal("Big Bird", "bird")
     daycare = Daycare([dog, cat, bird])
-    print(f"Name: {dog.name} Species: {dog.species}")
-    print(f"Name: {cat.name} Species: {cat.species}")
-    print(f"{daycare}")
+    n1 = Neighbourhood([daycare])
+    print(Neighbourhood)
+    
