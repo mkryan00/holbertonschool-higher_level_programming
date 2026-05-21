@@ -1,5 +1,29 @@
 #!/usr/bin/python3
 
+class RSPCA:
+    def __init__(self, animals_saved=[]):
+        self.animals_saved = animals_saved
+
+    @property
+    def animals_saved(self):
+        return self.__animals_saved
+
+    @animals_saved.setter
+    def animals_saved(self, value):
+        self.__animals_saved = value
+
+    def save_animals(self, animals):
+        print("/////////////////////")
+        print("We are saving:")
+        for index, animal in enumerate(animals):
+            print(f"Animal #{index}: {animal}")
+        print("/////////////////////")
+        self.animals_saved = animals
+        
+
+
+rspca = RSPCA()
+
 class Animal:
     
     __VALID_SPECIES = ("dog", "cat", "bird")
@@ -49,6 +73,16 @@ class Daycare:
     def __init__(self, animals):
         self.animals = animals
 
+    def __del__(self):
+        try:
+            if type(rspca) is not RSPCA:
+                print("Bye Bye Animals!")
+            else:
+                rspca.save_animals(self.animals)
+        except NameError:
+            print("Bye Bye Animals!")
+        
+
     def __str__(self):
         border = "========================="
         row = "Animal #{}: {}\n"
@@ -82,9 +116,13 @@ class Neighbourhood:
             raise OSError("Bendigo doesn't accept 2 neighbourhoods!")
 
         Neighbourhood.__COUNT += 1
+        self.daycare = daycare
 
-    def __del__():
+    def __del__(self):
+        print("Neighbourhood destroyed")
         Neighbourhood.__COUNT -= 1
+        for d in self.daycare:
+            del d
         
     @property
     def daycare(self):
@@ -93,17 +131,12 @@ class Neighbourhood:
     @daycare.setter
     def daycare(self, value):
         self.__daycare = value
-
-class RSPCA:
-
-    def __init__(self, animals)
-    self.__animals = animals
-        
+    
 if __name__ == "__main__":
     dog = Animal("Snoopy", "dog")
     cat = Animal("Garfield", "cat")
     bird = Animal("Big Bird", "bird")
     daycare = Daycare([dog, cat, bird])
     n1 = Neighbourhood([daycare])
-    print(Neighbourhood)
+    del n1
     
