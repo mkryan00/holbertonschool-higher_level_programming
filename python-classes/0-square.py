@@ -7,6 +7,9 @@ Module for a Square class.
 class Square:
     # Define a new classed called Square
     # This is the blueprint for creating Square objects.
+    """
+    A class that defines a square.
+    """
     pass
 # Tells python "this block is intentionally empty".
 # Without it, Python would throw an error because
