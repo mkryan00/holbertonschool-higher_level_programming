@@ -13,6 +13,8 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     # Checks if text is a string, if not raise TypeError.
+    text = text.lstrip()
+    # Strips leading spaces from the entire text before loop.
     edit = False
     # A flag to track whether we just printed a '.', '?' or ':'.
     # Starts as False - we haven't printed anything yet.
