@@ -60,6 +60,12 @@ Test case #3: A test case with infinity elements to divide
     >>> matrix_divided(matrix, 3)
     [[inf, inf, inf], [inf, inf, inf]]
 
+Test case #4: A test case with the integer elements and a float divider
+
+     >>> matrix = [[1, 2], [3, 4]]
+     >>> matrix_divided(matrix, float('inf'))
+     [[0.0, 0.0], [0.0, 0.0]]
+
 Section // Incorrect Matrix
 ===========================
 
