@@ -5,10 +5,13 @@ Defines a Square class.
 
 
 class Square:
-    
+    """
+    Represents a square.
+    """
+
     def __init__(self, size=0):
         """
-        The __init__ method initializes the size value of the square.
+        The __init__ method initializes a new square.
 
         Attribute:
         size (int): The size of the square. Defaults to 0.
