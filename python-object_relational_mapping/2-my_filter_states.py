@@ -19,9 +19,10 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Select all states, ordered by id ascending
-    query = ("SELECT * FROM states WHERE name = '{}' "
-             "ORDER BY states.id ASC".format(sys.argv[4]))
-    cursor.execute(query)
+    cursor.execute(
+        "SELECT * FROM states "
+        "WHERE name = '{}' "
+        "ORDER BY states.id ASC".format(sys.argv[4]))
 
     # Fetch all rows returned by the query
     rows = cursor.fetchall()
