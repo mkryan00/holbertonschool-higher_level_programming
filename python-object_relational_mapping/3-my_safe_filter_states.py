@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that lists all states matching the provided name"""
+"""A script that lists all states matching the provided name, safely."""
 
 import sys
 import MySQLdb
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     cursor.execute(
         "SELECT * FROM states "
         "WHERE name = %s "
-        "ORDER BY ASC",
+        "ORDER BY id ASC",
         (sys.argv[4],)
     )
 
