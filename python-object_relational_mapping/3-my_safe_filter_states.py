@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # Select all states, ordered by id ascending
     cursor.execute(
         "SELECT * FROM states "
-        "WHERE name = %s"
+        "WHERE name = %s "
         "ORDER BY ASC",
         (sys.argv[4],)
     )
