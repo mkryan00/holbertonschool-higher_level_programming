@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that lists all states from the database, sorted by id"""
+"""A script that lists all states matching the provided name"""
 
 import sys
 import MySQLdb
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # Select all states, ordered by id ascending
     cursor.execute(
         "SELECT * FROM states "
-        "WHERE name = '{}' "
+        "WHERE name LIKE BINARY '{}' "
         "ORDER BY states.id ASC".format(sys.argv[4]))
 
     # Fetch all rows returned by the query
