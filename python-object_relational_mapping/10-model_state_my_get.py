@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+"""Print the id of a give state name from the database."""
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
+import sys
+
+if __name__ == "__main__":
+    # Connect to the MySQL server using credentials and db name
+    # passed in as command line arguments
+    engine = create_engine(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3]
+        )
+    )
+
+    # Create a session to query the database via the ORM
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    # Query all State objects, ordered by id ascending
+    state = session.query(State).filter(
+        State.name == sys.argv[4]).first()
+
+    # Print state id of given name, if it exists.
+    if state is not None:
+        print(state.id)
+    else:
+        print("Not found")
+
+    # Close the session
+    session.close()
