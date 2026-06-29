@@ -6,9 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     """Represents a state, mapped to the states table
-    
+
     Attributes:
         id (int): The state's unique id, primary key.
         name (str): The state's name, max 128 characters.
