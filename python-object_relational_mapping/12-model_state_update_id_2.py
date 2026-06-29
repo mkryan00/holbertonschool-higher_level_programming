@@ -21,10 +21,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # 
+    # Find the State with id = 2
     state = session.query(State).filter(State.id == 2).first()
 
-    # Print new state's id
+    # Update its name to New Mexico and save the change
     if state is not None:
         state.name = "New Mexico"
         session.commit()
